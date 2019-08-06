@@ -1,7 +1,7 @@
 # operating-systems
 
 Scheduling algortihm programs
-
+# FIRST COME FIRST SERVE:
 First Come First Serve Scheduling
 In the "First come first serve" scheduling algorithm, as the name suggests, the process which arrives first, gets executed first, or we can say that the process which requests the CPU first, gets the CPU allocated first.
 
