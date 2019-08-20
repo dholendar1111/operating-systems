@@ -6,7 +6,7 @@ class sjf {
         int process[] = new int[10];
         int ptime[] = new int[10];
         int wtime[] = new int[10];
-        int temp, n, total=0;
+        int temp, n, total=0,tat;
         float avg=0;
         Scanner get = new Scanner(System.in);
  
@@ -22,7 +22,9 @@ class sjf {
  
         for(int i=0;i<n-1;i++)
         {
-            for(int j=i+1;j<n;j++)           {               if(ptime[i]>ptime[j])
+            for(int j=i+1;j<n;j++)          
+            {               
+                if(ptime[i]>ptime[j])
                 {
                     temp = ptime[i];
                     ptime[i] = ptime[j];
@@ -41,10 +43,10 @@ class sjf {
             total = total + wtime[i];
         }
         avg = (float)total/n;
-        System.out.println("P_ID P_TIME W_TIME");
+        System.out.println("P_ID P_TIME W_TIME tat");
         for(int i=0;i<n;i++)
         {
-            System.out.println(process[i]+"\t"+ptime[i]+"\t"+wtime[i]);
+            System.out.println(process[i]+"\t"+ptime[i]+"\t"+wtime[i]+"\t"+(ptime[i]+wtime[i]));
         }
         System.out.println("Total Waiting Time: "+total);
         System.out.println("Average Waiting Time: "+avg);
