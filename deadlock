@@ -1,0 +1,63 @@
+#include<stdio.h> 
+#include<conio.h>
+ void main() {
+ int work[5],avl[5],alloc[10][10],l;
+ int need[10][10],n,m,I,j,avail[10],max[10][10],k,count,fcount=0,pr[10]; 
+char finish[10]={„f‟,‟f‟,„f‟,‟f‟,„f‟,‟f‟,„f‟,‟f‟,„f‟,‟f‟};
+ clrscr(); 
+printf(“enter the no of process”); 
+scanf(“%d”,&n);
+ printf(“enter the no of resources”); 
+scanf(“%d”,&m); 
+printf(“enter the total no of resources”);
+ for(i=1;i<=m;i++) scanf(“%d”,&avail[i]); 
+printf(“enter the max resources req by each pr alloc matrix”); 
+for(i=1;i<=n;i++) for(j=1;j<=m;j++)
+ scanf(“%d”,&max[i][j]); 
+printf(“process allocation matrix”); 
+for(i=1;i<=n;i++)
+ for(j=1;j<=m;j++) 
+scanf(“%d”,&alloc[i][j]);
+ for(i=1;i<=n;i++) 
+for(j=1;j<=m;j++) 
+need[i][j]=max[i][j]-alloc[i][j];
+ for(i=1;i<=n;i++)
+ {
+ k=0;
+ for(j=1;j<=m;j++)
+ {
+k=k+alloc[i][j];
+ } 
+avl[i]=avl[i]-k; 
+work[i]=avl[i]; 
+} 
+for(k=1;k<=n;k++) 
+for(i=1;i<=n;i++) 
+{
+ count=0; 
+for(j=1;j<=m;j++)
+ { 
+if((finish[i]==‟f‟)&&(need[i][j]<=work[i])) 
+ count++; 
+} 
+if(count==m)
+ { 
+for(l=1;l<=m;l++)
+ work[l]=work[l]+alloc[i][l];
+ finish[i]=‟t‟;
+ pr[k]=i;
+ JBIET break; 
+} } 
+for(i=1;i<=n;i++)
+ if(finish[i]==‟t‟)
+ fcount++; 
+if(fcount==n) 
+{
+ printf(“the system is in safe state”);
+ for(i=1;i<=n;i++) 
+printf(“%d”,pr[i]); 
+} 
+Else
+ printf(“the system is not in safe state”); 
+getch();
+ }
